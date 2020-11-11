@@ -1,0 +1,3 @@
+include ':lk'
+include ':app'
+rootProject.name = "Algorithm"
