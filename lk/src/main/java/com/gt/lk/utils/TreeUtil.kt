@@ -1,4 +1,4 @@
-package com.gt.test
+package com.gt.lk.utils
 
 import com.gt.lk.bean.TreeNode
 
@@ -7,6 +7,8 @@ import com.gt.lk.bean.TreeNode
  * author GT
  */
 object TreeUtil {
+
+
     enum class TreeTraverse{
         FIRST,//先序
         MID,//中序
@@ -28,21 +30,21 @@ object TreeUtil {
     /**
      * 遍历
      */
-    fun traverse(root: TreeNode?, type:TreeTraverse, list:ArrayList<Int>){
+    fun traverse(root: TreeNode?, type: TreeTraverse, list:ArrayList<Int>){
         when(type){
-            TreeTraverse.FIRST->{
+            TreeTraverse.FIRST ->{
                 //先序遍历 先root 然后左子树 然后右子树
                 if(root != null) list.add(root.value)
                 if(root?.left != null) traverse(root.left,type,list)
                 if(root?.right != null) traverse(root.right,type,list)
             }
-            TreeTraverse.MID->{ //二叉搜索树中序遍历直接就是有序数组
+            TreeTraverse.MID ->{ //二叉搜索树中序遍历直接就是有序数组
                 //中序遍历 先左 再中 在右
                 if(root?.left != null) traverse(root.left,type,list)
                 if(root != null) list.add(root.value)
                 if(root?.right != null) traverse(root.right,type,list)
             }
-            TreeTraverse.LAST->{
+            TreeTraverse.LAST ->{
                 //后序遍历 先左 再右 再根
                 if(root?.left != null) traverse(root.left,type,list)
                 if(root?.right != null) traverse(root.right,type,list)
