@@ -14,6 +14,9 @@ object Day1022 {
         println("exist:$exist")
     }
 
+    /**
+     * 判断字符串在二维数组中是否存在路径
+     */
     private fun exist(board:Array<Array<Char>>,word:String):Boolean{
         for(i in board.indices){
             for(j in board[i].indices){

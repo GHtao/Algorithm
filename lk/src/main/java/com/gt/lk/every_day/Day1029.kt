@@ -30,7 +30,8 @@ object Day1029 {
      * 将数字转换成字符串的可能情况
      * 0=a 1=b ... 25=z
      *
-     * 滚动数组
+     * 滚动数组 空间优化
+     * 动态规划
      */
     private fun translateNum(num:Int):Int{
         val src = num.toString()

@@ -50,7 +50,7 @@ object Day1027 {
         }
         while(b > 0) {
             if((b and  1) == 1) res *= base
-            base *= base;
+            base *= base
             b = b.shr(1)
         }
         return res
