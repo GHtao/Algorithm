@@ -34,7 +34,7 @@ object DynamicProgram{
 
 //        val value = packetZeroAndOne(3,4, intArrayOf(2,1,3), intArrayOf(4,2,3))
 //        val value = canPattern(intArrayOf(1,2,3,6))
-//        val value = coinChange(5, intArrayOf(1,2,3))
+        val value = coinChange(10, intArrayOf(1,5,10))
 //        val value = matchStr("horse","ros",4,2)
 //        val value = matchStrDp("horse","ros")
 //        val value = eggDrop(6,2)
@@ -43,7 +43,7 @@ object DynamicProgram{
         val str2 = "badce"
 //        val value = lcs(str1,str2,str1.length-1,str2.length-1)
 //        val value = lcs2(str1,str2)
-        val value = palindrome(str1)
+//        val value = palindrome(str1)
         println(value)
     }
 
@@ -201,14 +201,15 @@ object DynamicProgram{
         for(i in 1..array.size){
             for(j in 1 ..coins){
                 when {
-                    j - array[i-1] < 0 -> {
+                    j - array[i-1] < 0 -> {//金额超过 就用前面的结果
                         dp[i][j] = dp[i-1][j]
-                    }else -> {
+                    }else -> {//没有超过
                         dp[i][j] = dp[i-1][j] + dp[i][j-array[i-1]]
                     }
                 }
             }
         }
+        //array.size种面值 构成的值为coins的方案数
         return dp[array.size][coins]
     }
 
