@@ -51,22 +51,22 @@ object Day1203 {
         }
         return dp[n]
     }
-}
+    private class Trie {
+        var next:Array<Trie?> = Array(26){null}
+        var isEnd = false
 
-private class Trie {
-    var next:Array<Trie?> = Array(26){null}
-    var isEnd = false
+        fun insert(s:String) {
+            var curPos = this
 
-    fun insert(s:String) {
-        var curPos = this
-
-        for (i in  s.length - 1 downTo 0) {
-            val t = s.toCharArray()[i] - 'a'
-            if (curPos.next[t] == null) {
-                curPos.next[t] = Trie()
+            for (i in  s.length - 1 downTo 0) {
+                val t = s.toCharArray()[i] - 'a'
+                if (curPos.next[t] == null) {
+                    curPos.next[t] = Trie()
+                }
+                curPos = curPos.next[t]!!
             }
-            curPos = curPos.next[t]!!
+            curPos.isEnd = true
         }
-        curPos.isEnd = true
     }
 }
+
