@@ -53,7 +53,7 @@ object Day1203 {
     }
 }
 
-class Trie {
+private class Trie {
     var next:Array<Trie?> = Array(26){null}
     var isEnd = false
 
